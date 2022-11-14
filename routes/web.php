@@ -14,11 +14,11 @@ use App\Http\Controllers\ItemController;
 |
 */
 
-Route::get('/', function(){
-    return view('home');
-});
+Route::get('/', [ItemController::class, 'index'])->name('index');
 
-Route::get('/item', [ItemController::class, 'item'])->name('item');
+Route::resource('items', ItemController::class);
+
+// Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
 
 Auth::routes();
 
@@ -26,4 +26,4 @@ Route::get('/cart', function(){
     return view('cart');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [ItemController::class, 'index'])->name('index');

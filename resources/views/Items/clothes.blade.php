@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    Hier komt de welkompagina (header)
+    Hier komen de kleren
     <br><br><br><br><br><br><br><br>
     Met al enkele artikels (beheerbaar door admin)
 </div>
