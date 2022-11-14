@@ -10,7 +10,7 @@ class ItemController extends Controller
 {
     // login om nieuw item te maken
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['index', 'clothes', 'shoes', 'accessories']]);
     }
     
     // alle items tonen in homepage
@@ -55,6 +55,45 @@ class ItemController extends Controller
         ]);
 
         $item = new Item;
+        $item->title = $validated['title'];
+        $item->description = $validated['description'];
+        $item->price = $validated['price'];
+        $item->picture = $validated['picture'];
+        $item->category = $validated['category'];
+        $item->save();
+
+        return redirect()->route('index');
+    }
+
+    // edit pagina
+    public function edit($id){
+        $item = Item::findOrFail($id);
+
+        // als gebruiker zelf link intypt krijgt die abort 403
+        if(!Auth::user()->is_admin) {
+            abort(403);
+        }
+
+        return view('items.edit', compact('item'));
+    }
+
+    // updaten data in database
+    public function update($id, Request $request){
+        $item = Item::findOrFail($id);
+
+        // als gebruiker zelf link intypt krijgt die abort 403
+        if(!Auth::user()->is_admin) {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'title'             => 'required',
+            'description'       => 'required',
+            'price'             => 'required',
+            'picture'           => 'required',
+            'category'          => 'required',
+        ]);
+
         $item->title = $validated['title'];
         $item->description = $validated['description'];
         $item->price = $validated['price'];

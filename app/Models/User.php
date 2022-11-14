@@ -44,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // een user heeft één winkelmandje
+    public function cart(){
+        $this->hasOne('App\Models\Cart');
+    }
 }

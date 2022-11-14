@@ -22,8 +22,6 @@ Route::get('/about', function(){
 
 Route::resource('items', ItemController::class);
 
-// Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
-
 Auth::routes();
 
 Route::get('/cart', function(){
