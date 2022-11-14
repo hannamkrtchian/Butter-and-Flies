@@ -9,4 +9,3 @@
     Met al enkele artikels (beheerbaar door admin)
 </div>
 @endsection
-
