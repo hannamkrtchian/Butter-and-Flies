@@ -17,11 +17,12 @@
                     @endif
 
                     <h4>Sources:</h4> <br>
-                    <p>1. I followed the course material, especially the video about the guestbook. 
-                        (https://ehb.instructuremedia.com/embed/edeb8a9e-3e8f-4af3-85f9-8be5ae754e7d)</p>
-                    <p>2. Laravel Documentation, especially for database migrations (https://laravel.com/docs/7.x)</p>
-                    <p></p>
-                    <p>?. Bootstrap for design (https://getbootstrap.com/)</p>
+                    <a href="https://ehb.instructuremedia.com/embed/edeb8a9e-3e8f-4af3-85f9-8be5ae754e7d">
+                        1. I followed the course material, especially the video about the guestbook. 
+                    </a> <br><br>
+                    <a href="https://laravel.com/docs/7.x">2. Laravel Documentation, especially for database migrations.</a><br><br>
+                    <a href="https://getbootstrap.com/">3. Bootstrap for design.</a><br><br>
+                    <a></a>
                 </div>
             </div>
         </div>

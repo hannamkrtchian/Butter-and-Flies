@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            // $table->text('biography');
-            // $table->date('birthday');
-            // $table->blob('avatar');
+        Schema::table('users', function ($table) {
+             $table->text('biography');
+             $table->date('birthday');
+             $table->binary('avatar');
         });
     }
 
@@ -27,10 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            // $table->dropColumn('biography');
-            // $table->dropColumn('birthday');
-            // $table->dropColumn('avatar');
+        Schema::table('users', function ($table) {
+             $table->dropColumn('biography');
+             $table->dropColumn('birthday');
+             $table->dropColumn('avatar');
         });
     }
 };
