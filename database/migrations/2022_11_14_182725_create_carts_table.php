@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        // vergeten columns toevoegen
-        Schema::table('users', function ($table) {
-             $table->text('biography');
-             $table->date('birthday');
-             $table->binary('avatar');
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -28,10 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function ($table) {
-             $table->dropColumn('biography');
-             $table->dropColumn('birthday');
-             $table->dropColumn('avatar');
-        });
+        Schema::dropIfExists('carts');
     }
 };

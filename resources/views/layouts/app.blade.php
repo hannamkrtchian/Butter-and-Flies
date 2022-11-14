@@ -33,9 +33,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href=# role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Categories</a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href=#>Clothes</a>
-                                    <a class="dropdown-item" href=#>Shoes</a>
-                                    <a class="dropdown-item" href=#>Accessories</a>
+                                    <a class="dropdown-item" href="{{ route('clothes')}}">Clothes</a>
+                                    <a class="dropdown-item" href="{{ route('shoes')}}">Shoes</a>
+                                    <a class="dropdown-item" href="{{ route('accessories')}}">Accessories</a>
                                 </div>
                         </li>
                         <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>

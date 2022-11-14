@@ -30,4 +30,10 @@ Route::get('/cart', function(){
     return view('cart');
 });
 
+Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
+
+Route::get('/shoes', [ItemController::class, 'shoes'])->name('shoes');
+
+Route::get('/accessories', [ItemController::class, 'accessories'])->name('accessories');
+
 Route::get('/home', [ItemController::class, 'index'])->name('index');

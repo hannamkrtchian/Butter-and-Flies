@@ -16,6 +16,7 @@
                         </div>
                     @endif
 
+                    <br>
                     <h4>GitHub: </h4> <br>
                     <a href="https://github.com/hannamkrtchian/Butter-and-Flies">
                         My GitHub repository.

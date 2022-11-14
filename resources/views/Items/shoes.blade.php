@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Clothes')
+@section('title', 'Shoes')
 
 @section('content')
 <div class="container">
-    <h2>Check out our clothes.</h2>
+    <h2>Check out our shoes.</h2>
     <br>
     <div class="d-flex flex-wrap">
         @foreach($items as $item)

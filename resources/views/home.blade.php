@@ -9,7 +9,7 @@
     <br><br>
     <div class="d-flex flex-wrap">
         @foreach($items as $item)
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; margin: 0 20px 0 20px;">
                 <img src="{{ $item->picture }}" class="card-img-top" alt="{{ $item->description }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->title }}</h5>

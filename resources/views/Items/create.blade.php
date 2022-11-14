@@ -14,6 +14,7 @@
                     <form method="POST" action="{{ route('items.store') }}">
                         @csrf
 
+                        <!-- titel nieuw item -->
                         <div class="row mb-3">
                             <label for="title" class="col-md-4 col-form-label text-md-end">Title: </label>
 
@@ -28,6 +29,7 @@
                             </div>
                         </div>
 
+                        <!-- description nieuw item -->
                         <div class="row mb-3">
                             <label for="description" class="col-md-4 col-form-label text-md-end">Description: </label>
 
@@ -42,6 +44,7 @@
                             </div>
                         </div>
 
+                        <!-- prijs nieuw item -->
                         <div class="row mb-3">
                             <label for="price" class="col-md-4 col-form-label text-md-end">Price: </label>
 
@@ -56,6 +59,7 @@
                             </div>
                         </div>
 
+                        <!-- foto nieuw item -->
                         <div class="row mb-3">
                             <label for="picture" class="col-md-4 col-form-label text-md-end">Picture: </label>
 
@@ -70,6 +74,7 @@
                             </div>
                         </div>
 
+                        <!-- categorie nieuw item -->
                         <div class="row mb-3">
                             <label for="category" class="col-md-4 col-form-label text-md-end">Category: </label>
 
@@ -102,6 +107,7 @@
                             </div>
                         </div>
 
+                        <!-- submit button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

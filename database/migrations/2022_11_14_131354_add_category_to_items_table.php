@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        // vergeten column toevoegen
         Schema::table('items', function (Blueprint $table) {
             $table->enum('category', ['Clothes', 'Shoes', 'Accessories']);
         });
