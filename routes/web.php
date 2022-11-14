@@ -16,6 +16,10 @@ use App\Http\Controllers\ItemController;
 
 Route::get('/', [ItemController::class, 'index'])->name('index');
 
+Route::get('/about', function(){
+    return view('about');
+});
+
 Route::resource('items', ItemController::class);
 
 // Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');

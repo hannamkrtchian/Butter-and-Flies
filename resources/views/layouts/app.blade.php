@@ -38,7 +38,7 @@
                                     <a class="dropdown-item" href=#>Accessories</a>
                                 </div>
                         </li>
-                        <li><a class="nav-link" href=#>About</a></li>
+                        <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>
                         <li><a class="nav-link" href=#>FAQ</a></li>
                         <li><a class="nav-link" href=#>Contact</a></li>
                     </ul>
