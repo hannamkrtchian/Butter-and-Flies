@@ -16,6 +16,11 @@
                         </div>
                     @endif
 
+                    <h4>GitHub: </h4> <br>
+                    <a href="https://github.com/hannamkrtchian/Butter-and-Flies">
+                        My GitHub repository.
+                    </a> <br><br><hr><br>
+
                     <h4>Sources:</h4> <br>
                     <a href="https://ehb.instructuremedia.com/embed/edeb8a9e-3e8f-4af3-85f9-8be5ae754e7d">
                         1. I followed the course material, especially the video about the guestbook. 
