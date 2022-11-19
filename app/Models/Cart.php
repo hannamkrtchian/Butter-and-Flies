@@ -18,4 +18,11 @@ class Cart extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function item_ids(): Attribute {
+        return Attribute::make(
+            get: fn ($value) => json_decode($value, true),
+            set: fn ($value) => json_encoded($value),
+        );
+    }
 }

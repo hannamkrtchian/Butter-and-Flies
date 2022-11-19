@@ -8,9 +8,9 @@ use Auth;
 
 class ItemController extends Controller
 {
-    // login om nieuw item te maken
+    // login om nieuw item te maken of editen
     public function __construct(){
-        $this->middleware('auth', ['except' => ['index', 'clothes', 'shoes', 'accessories']]);
+        $this->middleware('auth', ['except' => ['index', 'clothes', 'shoes', 'accessories', 'show']]);
     }
     
     // alle items tonen in homepage
@@ -40,6 +40,10 @@ class ItemController extends Controller
 
     // naar create pagina
     public function create(){
+        // als gebruiker zelf link intypt krijgt die abort 403
+        if(!Auth::user()->is_admin) {
+            abort(403);
+        }
         return view('items.create');
     }
 
@@ -102,5 +106,13 @@ class ItemController extends Controller
         $item->save();
 
         return redirect()->route('index');
+    }
+
+    // elk item apart bekijken
+    public function show($id){
+        $item = Item::findOrFail($id);
+        $otheritems = Item::where('category', '=', $item->category)->where('id', '!=', $id)->latest()->get();
+
+        return view('items.show', compact('item', 'otheritems'));
     }
 }

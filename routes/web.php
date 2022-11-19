@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,9 @@ Route::resource('items', ItemController::class);
 
 Auth::routes();
 
-Route::get('/cart', function(){
-    return view('cart');
-});
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+
+// Route::get('/cart', [CartController::class, 'AddItemToCart'])->name('addToCart');
 
 Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
 

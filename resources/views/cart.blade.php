@@ -17,6 +17,26 @@
                     @endif
 
                     <p>Items in your cart: </p>
+
+                    @foreach($items_in_cart as $item)
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <img src="{{ $item->picture }}" alt="{{ $item->description }}">
+                            </div>
+                            <div class="col-md-3 ">
+                                <h1>{{ $item->title }}</h1>
+                                <p>{{ $item->description }}</p>
+                                <p>Category: {{ $item->category }}</p><br>
+                                <p>€ {{ $item->price }}</p> <br>
+                            </div>
+                                <div class="col-md-3 text-center">
+                                    <br><br>
+                                    <!-- verwijderen uit cart -->
+                                    <a href="#" class="btn btn-primary">Delete from cart</a>
+                                </div>
+                            
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
