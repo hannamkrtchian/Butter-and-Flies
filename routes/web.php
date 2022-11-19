@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/shoes', [ItemController::class, 'shoes'])->name('shoes');
 Route::get('/accessories', [ItemController::class, 'accessories'])->name('accessories');
 
 Route::get('/home', [ItemController::class, 'index'])->name('index');
+
+Route::get('user/{name}', [UserController::class, 'profile'])->name('profile');
