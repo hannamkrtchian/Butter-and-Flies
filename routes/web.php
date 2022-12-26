@@ -16,8 +16,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
+// home
 Route::get('/', [ItemController::class, 'index'])->name('index');
 
+Route::get('/home', [ItemController::class, 'index'])->name('index');
+
+// about
 Route::get('/about', function(){
     return view('about');
 });
@@ -26,16 +30,23 @@ Route::resource('items', ItemController::class);
 
 Auth::routes();
 
+// cart
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 
-// Route::get('/cart', [CartController::class, 'AddItemToCart'])->name('addToCart');
+Route::post('/cart/add', [CartController::class, 'AddItemToCart'])->name('addToCart');
 
+// clothes
 Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
 
+// shoes
 Route::get('/shoes', [ItemController::class, 'shoes'])->name('shoes');
 
+// accessories
 Route::get('/accessories', [ItemController::class, 'accessories'])->name('accessories');
 
-Route::get('/home', [ItemController::class, 'index'])->name('index');
+// profile
+Route::get('user/{id}', [UserController::class, 'profile'])->name('profile');
 
-Route::get('user/{name}', [UserController::class, 'profile'])->name('profile');
+Route::get('user/{id}/edit', [UserController::class, 'edit'])->name('edit');
+
+Route::post('user/{id}/update', [UserController::class, 'update'])->name('update');

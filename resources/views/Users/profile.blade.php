@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><br><h2>Profile</h2></div>
+                <div class="card-header"><br><h2>Your profile</h2></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,24 +20,21 @@
 
                     
                         <div class="row d-flex">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <img src="{{ $user->avatar }}" alt="{{ $user->name }}">
                             </div>
-                            <div class="col-md-5 ">
+                            <div class="col-md-8">
                                 <h1>{{ $user->name }}</h1>
-                                <p>Your e-mail address: {{ $user->email }}</p>
-                                <p>Your biography: {{ $user->biography }}</p>
-                                <p>Your birthday: {{ $user->birthday }}</p><br>
+                                <p class="fw-bold">Your e-mail address:</p> <p>{{ $user->email }}</p><br>
+                                <p class="fw-bold">Your biography:</p> <p>{{ $user->biography }}</p><br>
+                                <p class="fw-bold">Your birthday:</p> <p>{{ date('d/m/Y', strtotime($user->birthday)) }}</p><br>
                             </div>
                             </div>
-                                <div class="col-md-3 text-center">
+                                <div class="text-center">
                                     <br><br>
                                     <!-- edit -->
-                                    <a href="#" class="btn btn-primary">Edit your profile</a>
+                                    <a href="{{ route('edit', $user->id)  }}" class="btn btn-primary">Edit your profile</a>
                                 </div>
-                            
-                        
-                    
                 </div>
             </div>
         </div>
