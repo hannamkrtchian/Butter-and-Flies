@@ -30,6 +30,7 @@
                                 <p class="fw-bold">Birthday:</p> <p>{{ date('d F Y', strtotime($user->birthday)) }}</p><br>
                             </div>
                             </div>
+                            <!-- user can edit his own profile -->
                             @if (Auth::User() == $user)
                                 <div class="text-center">
                                     <br><br>

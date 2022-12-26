@@ -8,11 +8,13 @@ use Auth;
 
 class UserController extends Controller
 {
+    // show profiles
     public function profile($id){
         $user = User::findOrFail($id);
         return view('users.profile', compact('user'));
     }
 
+    // edit your own profile
     public function edit($id){
         $user = User::findOrFail($id);
 

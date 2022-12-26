@@ -116,6 +116,7 @@ class ItemController extends Controller
         return view('items.show', compact('item', 'otheritems'));
     }
 
+    // delete item
     public function destroy($id){
         if(!Auth::User()->is_admin) {
             abort(403);
