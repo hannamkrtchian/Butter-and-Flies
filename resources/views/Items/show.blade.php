@@ -26,7 +26,12 @@
                 @endif
                 <!-- admin kan post veranderen -->
                 @if(Auth::user() && Auth::user()->is_admin)
-                    <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit item</a>
+                    <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary m-2">Edit item</a>
+                    <form method="POST" action="{{ route('items.destroy', $item->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Delete item" class="btn m-2 bg-danger text-white">
+                    </form>
                 @endif
             </div>
         

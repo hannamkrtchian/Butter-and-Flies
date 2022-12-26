@@ -115,4 +115,15 @@ class ItemController extends Controller
 
         return view('items.show', compact('item', 'otheritems'));
     }
+
+    public function destroy($id){
+        if(!Auth::User()->is_admin) {
+            abort(403);
+        }
+
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('index')->with('status', 'Item deleted');
+    }
 }
