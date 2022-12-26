@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,12 @@ Route::get('user/{id}', [UserController::class, 'profile'])->name('profile');
 Route::get('user/{id}/edit', [UserController::class, 'edit'])->name('edit');
 
 Route::post('user/{id}/update', [UserController::class, 'update'])->name('update');
+// delete?
+
+// faq
+Route::get('/faq', [FaqController::class, 'show'])->name('show');
+
+Route::get('/faq/edit', [FaqController::class, 'edit'])->name('edit');
+
+Route::post('/faq/update', [FaqController::class, 'update'])->name('update');
+// delete?

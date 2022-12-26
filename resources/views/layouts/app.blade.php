@@ -39,7 +39,7 @@
                                 </div>
                         </li>
                         <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                        <li><a class="nav-link" href=#>FAQ</a></li>
+                        <li><a class="nav-link" href="{{ route('show') }}">FAQ</a></li>
                         <li><a class="nav-link" href=#>Contact</a></li>
                     </ul>
 
