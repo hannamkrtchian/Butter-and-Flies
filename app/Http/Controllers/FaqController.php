@@ -14,11 +14,4 @@ class FaqController extends Controller
         $faqs = Faq::latest()->get();
         return view('faq.show', compact('categories', 'faqs'));
     }
-
-    // show faq
-    public function showFaq($category_id){
-        $faqs = Faq::where('category_id', '=', $category_id);
-
-        return view('faq.show', compact('faqs'));
-    }
 }
