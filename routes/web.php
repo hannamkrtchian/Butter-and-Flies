@@ -55,6 +55,7 @@ Route::post('user/{id}/update', [UserController::class, 'update'])->name('update
 
 // faq
 Route::get('/faq', [FaqController::class, 'show'])->name('show');
+Route::get('/faq/{category_id}', [FaqController::class, 'showFaq'])->name('showFaq');
 
 Route::get('/faq/edit', [FaqController::class, 'edit'])->name('edit');
 

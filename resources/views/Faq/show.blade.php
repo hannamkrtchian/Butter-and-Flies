@@ -9,23 +9,21 @@
     <br><br>
     @foreach($categories as $category)
     <div class="d-flex flex-wrap" style="justify-content: center;">
-        <p>
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
-            </p>
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                <div class="card card-body">
-                    Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-            </div>
-                <div class="collapse multi-collapse" id="multiCollapseExample2">
-                <div class="card card-body">
-                    Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-                </div>
-            </div>
+        <p class="w-100">
+            <a class="btn btn-secondary w-100" data-bs-toggle="collapse" href="#multiCollapse{{ $category->id }}" role="button" aria-expanded="false" aria-controls="multiCollapse{{ $category->id }}">{{ $category->name }}</a>
+        </p>
+        <div class="collapse multi-collapse" id="multiCollapse{{ $category->id }}">
+        @foreach($faqs as $faq)
+        @if($faq->category_id == $category->id)
+        <div class="card card-body">
+            <h4>{{ $faq->question }}</h4>
+            <hr>
+            <p>{{ $faq->answer }}</p>
+        </div>
+        @endif
+        @endforeach
         <br><br>
+        </div>
     </div>
     @endforeach
 </div>
