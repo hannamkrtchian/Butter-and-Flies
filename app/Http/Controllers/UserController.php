@@ -9,7 +9,7 @@ use Auth;
 class UserController extends Controller
 {
     // show profiles
-    public function profile($id){
+    public function show($id){
         $user = User::findOrFail($id);
         return view('users.profile', compact('user'));
     }
@@ -39,7 +39,6 @@ class UserController extends Controller
             'name'              => 'required',
             'biography'         => 'required',
             'email'             => 'required',
-            'password'          => 'required',
             'avatar'            => 'required',
             'birthday'          => 'required',
         ]);
@@ -47,11 +46,22 @@ class UserController extends Controller
         $user->name = $validated['name'];
         $user->biography = $validated['biography'];
         $user->email = $validated['email'];
-        $user->password = $validated['password'];
         $user->avatar = $validated['avatar'];
         $user->birthday = $validated['birthday'];
         $user->save();
 
-        return redirect()->route('profile', $user->id);
+        return redirect()->route('users.show', $user->id);
+    }
+
+     // delete profile
+     public function destroy($id){
+        if(Auth::user()->id != $id || !Auth::User()->is_admin) {
+            abort(403);
+        }
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('index')->with('status', 'User deleted');
     }
 }

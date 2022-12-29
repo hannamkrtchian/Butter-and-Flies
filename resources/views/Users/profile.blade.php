@@ -30,12 +30,18 @@
                                 <p class="fw-bold">Birthday:</p> <p>{{ date('d F Y', strtotime($user->birthday)) }}</p><br>
                             </div>
                             </div>
-                            <!-- user can edit his own profile -->
-                            @if (Auth::User() == $user)
+                            <!-- user or admin can edit or delete this profile -->
+                            @if (Auth::User() == $user || Auth::User()->is_admin)
                                 <div class="text-center">
                                     <br><br>
                                     <!-- edit -->
-                                    <a href="{{ route('edit', $user->id)  }}" class="btn btn-primary">Edit your profile</a>
+                                    <a href="{{ route('users.edit', $user->id)  }}" class="btn btn-primary">Edit profile</a>
+                                    <!-- delete account -->
+                                    <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Delete account" class="btn m-2 bg-danger text-white">
+                                    </form>
                                 </div>
                             @endif
                 </div>

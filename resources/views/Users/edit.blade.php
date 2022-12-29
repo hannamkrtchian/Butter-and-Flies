@@ -11,7 +11,7 @@
                 <div class="card-header">Edit Profile</div>
 
                 <div class="card-body">
-                <form method="POST" action="{{ route('update', $user->id) }}">
+                <form method="POST" action="{{ route('users.update', $user->id) }}">
                         @csrf
                         @method('PUT')
 

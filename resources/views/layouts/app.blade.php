@@ -39,7 +39,7 @@
                                 </div>
                         </li>
                         <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                        <li><a class="nav-link" href="{{ route('show') }}">FAQ</a></li>
+                        <li><a class="nav-link" href="{{ route('faq.show') }}">FAQ</a></li>
                         <li><a class="nav-link" href=#>Contact</a></li>
                     </ul>
 
@@ -66,7 +66,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile', Auth::user()->id) }}">Profile</a>
+                                    <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

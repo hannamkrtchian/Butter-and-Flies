@@ -27,8 +27,10 @@ Route::get('/about', function(){
     return view('about');
 });
 
+// items
 Route::resource('items', ItemController::class);
 
+// auth
 Auth::routes();
 
 // cart
@@ -46,17 +48,21 @@ Route::get('/shoes', [ItemController::class, 'shoes'])->name('shoes');
 Route::get('/accessories', [ItemController::class, 'accessories'])->name('accessories');
 
 // profile
-Route::get('user/{id}', [UserController::class, 'profile'])->name('profile');
-
-Route::get('user/{id}/edit', [UserController::class, 'edit'])->name('edit');
-
-Route::post('user/{id}/update', [UserController::class, 'update'])->name('update');
-// delete?
+Route::resource('users', UserController::class);
 
 // faq
-Route::get('/faq', [FaqController::class, 'show'])->name('show');
+Route::get('/faq', [FaqController::class, 'show'])->name('faq.show');
 
-Route::get('/faq/edit', [FaqController::class, 'edit'])->name('edit');
+Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');
 
-Route::post('/faq/update', [FaqController::class, 'update'])->name('update');
-// delete?
+Route::post('/faq/store/category', [FaqController::class, 'storeCat'])->name('faq.store.category');
+
+Route::post('/faq/store', [FaqController::class, 'storeFaq'])->name('faq.store');
+
+Route::get('/faq/edit', [FaqController::class, 'edit'])->name('faq.edit');
+
+Route::put('/faq/{id}/update', [FaqController::class, 'update'])->name('faq.update');
+
+Route::delete('/faq/{id}/deleteCategory', [FaqController::class, 'destroyCat'])->name('faq.destroy.category');
+
+Route::delete('/faq/{id}/deleteFaq', [FaqController::class, 'destroyFaq'])->name('faq.destroy');
