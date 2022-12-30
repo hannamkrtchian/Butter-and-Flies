@@ -53,11 +53,11 @@ Route::resource('users', UserController::class);
 // faq
 Route::get('/faq', [FaqController::class, 'show'])->name('faq.show');
 
-Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');
+Route::get('/faq/{id}/create', [FaqController::class, 'create'])->name('faq.create');
 
 Route::post('/faq/store/category', [FaqController::class, 'storeCat'])->name('faq.store.category');
 
-Route::post('/faq/store', [FaqController::class, 'storeFaq'])->name('faq.store');
+Route::post('/faq/{id}/store', [FaqController::class, 'storeFaq'])->name('faq.store');
 
 Route::get('/faq/edit', [FaqController::class, 'edit'])->name('faq.edit');
 

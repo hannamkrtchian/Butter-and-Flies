@@ -13,18 +13,19 @@ class FaqController extends Controller
     public function show(){
         $categories = Category::latest()->get();
         $faqs = Faq::latest()->get();
+
         return view('faq.show', compact('categories', 'faqs'));
     }
 
-    // naar create faq pagina
-    public function create($category_id){
-        $category = Category::findOrFail($category_id);
+    // naar create faq pagina (met category id)
+    public function create($id){
+        $category = Category::findOrFail($id);
 
-        // als gebruiker zelf link intypt krijgt die abort 403
+        /* // als gebruiker zelf link intypt krijgt die abort 403
         if(!Auth::user() || !Auth::user()->is_admin) {
             abort(403);
-        }
-        
+        } */
+
         return view('faq.create', compact('category'));
     }
 
@@ -42,7 +43,7 @@ class FaqController extends Controller
         return redirect()->route('faq.edit');
     }
 
-    // faq storen in db
+    // faq storen in db (met category id)
     public function storeFaq($id, Request $request){
         
         $validated = $request->validate([

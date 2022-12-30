@@ -20,6 +20,7 @@
                 @method('DELETE')
                 <input type="submit" value="Delete category {{ $category->name }}" class="btn m-2 bg-danger text-white">
             </form>
+            {{$category->id}}
             <a href="{{ route('faq.create', $category->id) }}" class="btn m-2 btn-primary">Create a new question</a>
         </p>
         <div class="collapse multi-collapse" id="multiCollapse{{ $category->id }}">
