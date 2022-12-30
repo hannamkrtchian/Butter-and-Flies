@@ -40,4 +40,15 @@ class ContactController extends Controller
 
         return redirect()->route('contact.form');
     }
+
+    public function destroy($id){
+        if(!Auth::User() || !Auth::User()->is_admin) {
+            abort(403);
+        }
+
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+
+        return redirect()->route('contact.show')->with('status', 'Question deleted');
+    }
 }

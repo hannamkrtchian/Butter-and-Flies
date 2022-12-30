@@ -74,3 +74,5 @@ Route::get('/contact', [ContactController::class, 'form'])->name('contact.form')
 Route::get('/contact/view', [ContactController::class, 'show'])->name('contact.show');
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+Route::delete('/contact/{id}/delete', [ContactController::class, 'destroy'])->name('contact.destroy');
