@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,10 @@ Route::put('/faq/{id}/update', [FaqController::class, 'update'])->name('faq.upda
 Route::delete('/faq/{id}/deleteCategory', [FaqController::class, 'destroyCat'])->name('faq.destroy.category');
 
 Route::delete('/faq/{id}/deleteFaq', [FaqController::class, 'destroyFaq'])->name('faq.destroy');
+
+// contact
+Route::get('/contact', [ContactController::class, 'form'])->name('contact.form');
+
+Route::get('/contact/view', [ContactController::class, 'show'])->name('contact.show');
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');

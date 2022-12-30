@@ -21,10 +21,10 @@ class FaqController extends Controller
     public function create($id){
         $category = Category::findOrFail($id);
 
-        /* // als gebruiker zelf link intypt krijgt die abort 403
+        // als gebruiker zelf link intypt krijgt die abort 403
         if(!Auth::user() || !Auth::user()->is_admin) {
             abort(403);
-        } */
+        }
 
         return view('faq.create', compact('category'));
     }
