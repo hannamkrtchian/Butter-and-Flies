@@ -18,7 +18,8 @@
 
                     <p>Items in your cart: </p>
 
-                    @foreach($items_in_cart as $item)
+                    @foreach($items as $item)
+                    <hr>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-3">
                                 <img src="{{ $item->picture }}" alt="{{ $item->description }}">
@@ -31,10 +32,15 @@
                             </div>
                                 <div class="col-md-3 text-center">
                                     <br><br>
-                                    <!-- verwijderen uit cart -->
-                                    <a href="#" class="btn btn-primary">Delete from cart</a>
+
+                                    <!-- delete from cart -->
+
+                                    <form method="POST" action="{{ route('cart.update', $item->id) }}" class="d-flex justify-content-center">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="submit" value="Delete from cart" class="btn m-2 bg-danger text-white">
+                                    </form>
                                 </div>
-                            
                         </div>
                     @endforeach
                 </div>

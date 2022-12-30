@@ -35,9 +35,11 @@ Route::resource('items', ItemController::class);
 Auth::routes();
 
 // cart
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/cart/{id}', [CartController::class, 'cart'])->name('cart');
 
-Route::post('/cart/add', [CartController::class, 'AddItemToCart'])->name('addToCart');
+Route::put('/cart/{id}/add', [CartController::class, 'AddItemToCart'])->name('addToCart');
+
+Route::put('/cart/{item_id}/update', [CartController::class, 'update'])->name('cart.update');
 
 // clothes
 Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
