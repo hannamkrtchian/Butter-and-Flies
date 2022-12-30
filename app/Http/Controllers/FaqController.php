@@ -11,8 +11,8 @@ class FaqController extends Controller
 {
     // show page
     public function show(){
-        $categories = Category::latest()->get();
-        $faqs = Faq::latest()->get();
+        $categories = Category::oldest()->get();
+        $faqs = Faq::oldest()->get();
 
         return view('faq.show', compact('categories', 'faqs'));
     }
@@ -33,7 +33,7 @@ class FaqController extends Controller
     public function storeCat(Request $request){
         
         $validated = $request->validate([
-            'naam'             => 'required',
+            'name'             => 'required',
         ]);
 
         $category = new Category;
@@ -61,8 +61,8 @@ class FaqController extends Controller
     }
 
     public function edit(){
-        $categories = Category::latest()->get();
-        $faqs = Faq::latest()->get();
+        $categories = Category::oldest()->get();
+        $faqs = Faq::oldest()->get();
 
         // als gebruiker zelf link intypt krijgt die abort 403
         if(!Auth::user() || !Auth::user()->is_admin) {
