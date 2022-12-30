@@ -37,5 +37,7 @@ class ContactController extends Controller
         $contact->email = $validated['email'];
         $contact->question = $validated['question'];
         $contact->save();
+
+        return redirect()->route('contact.form');
     }
 }

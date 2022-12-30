@@ -38,8 +38,9 @@
                                     <a class="dropdown-item" href="{{ route('accessories')}}">Accessories</a>
                                 </div>
                         </li>
-                        <li><a class="nav-link" href="{{ route('items.create }}">Add items</a></li>
-                        <li><a class="nav-link" href=#>Update FAQ</a></li>
+                        <li><a class="nav-link" href="{{ route('items.create') }}">Add items</a></li>
+                        <li><a class="nav-link" href="{{ route('faq.edit') }}">Update FAQ</a></li>
+                        <li><a class="nav-link" href="{{ route('contact.show') }}">See user's questions</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

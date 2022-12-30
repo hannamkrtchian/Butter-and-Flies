@@ -40,7 +40,7 @@
                         </li>
                         <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>
                         <li><a class="nav-link" href="{{ route('faq.show') }}">FAQ</a></li>
-                        <li><a class="nav-link" href=#>Contact</a></li>
+                        <li><a class="nav-link" href="{{ route('contact.form') }}">Contact</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
