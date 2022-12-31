@@ -41,6 +41,8 @@ Route::put('/cart/{id}/add', [CartController::class, 'AddItemToCart'])->name('ad
 
 Route::put('/cart/{item_id}/update', [CartController::class, 'update'])->name('cart.update');
 
+Route::post('/cart/create', [CartController::class, 'create'])->name('cart.create');
+
 // clothes
 Route::get('/clothes', [ItemController::class, 'clothes'])->name('clothes');
 
@@ -52,6 +54,8 @@ Route::get('/accessories', [ItemController::class, 'accessories'])->name('access
 
 // profile
 Route::resource('users', UserController::class);
+
+Route::put('/users/{id}/makeAdmin', [UserController::class, 'makeAdmin'])->name('users.makeAdmin');
 
 // faq
 Route::get('/faq', [FaqController::class, 'show'])->name('faq.show');

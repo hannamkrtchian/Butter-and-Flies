@@ -53,6 +53,21 @@ class UserController extends Controller
         return redirect()->route('users.show', $user->id);
     }
 
+    // make user admin
+    public function makeAdmin($id){
+        $user = User::findOrFail($id);
+
+        // als andere gebruiker zelf link intypt krijgt die abort 403
+        if(!Auth::user()->is_admin) {
+            abort(403);
+        }
+
+        $user->is_admin = 1;
+        $user->save();
+
+        return redirect()->route('users.show', $user->id);
+    }
+
      // delete profile
      public function destroy($id){
         if(Auth::user()->id != $id || !Auth::User()->is_admin) {

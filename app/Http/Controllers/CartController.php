@@ -15,7 +15,7 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request) {
+    public function create() {
         $cart = new Cart;
         $cart->user_id = Auth::user()->id;
         $cart->save();

@@ -20,6 +20,7 @@
             <hr>
             <p>{{ $faq->answer }}</p>
         </div>
+        <br>
         @endif
         @endforeach
         <br><br>

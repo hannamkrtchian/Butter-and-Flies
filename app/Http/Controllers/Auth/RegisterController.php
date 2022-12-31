@@ -77,10 +77,6 @@ class RegisterController extends Controller
             'avatar' => $data['avatar'],
         ]);
 
-        Cart::create([
-            'user_id' => $user->id,
-        ]);
-
         return $user;
     }
 }

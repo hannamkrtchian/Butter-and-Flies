@@ -44,6 +44,18 @@
                                     </form>
                                 </div>
                             @endif
+
+                            <!-- admin can make this user admin -->
+                            @if (!$user->is_admin && Auth::User()->is_admin)
+                                <div class="text-center">
+                                    <!-- make user admin -->
+                                    <form method="POST" action="{{ route('users.makeAdmin', $user->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="submit" value="Make this user admin" class="btn m-2 bg-warning">
+                                    </form>
+                                </div>
+                            @endif
                 </div>
             </div>
         </div>
