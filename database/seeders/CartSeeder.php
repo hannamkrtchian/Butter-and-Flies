@@ -17,7 +17,7 @@ class CartSeeder extends Seeder
     {
         DB::table('carts')->insert([
             'user_id' => '2',
-            'item_ids' => '[1, 5]',
+            'item_ids' => '[1, 3, 5, 6]',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

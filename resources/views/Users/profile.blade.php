@@ -31,7 +31,7 @@
                             </div>
                             </div>
                             <!-- user or admin can edit or delete this profile -->
-                            @if (Auth::User() == $user || Auth::User()->is_admin)
+                            @if (Auth::User() == $user || (Auth::User() && Auth::User()->is_admin))
                                 <div class="text-center">
                                     <br><br>
                                     <!-- edit -->
@@ -46,7 +46,7 @@
                             @endif
 
                             <!-- admin can make this user admin -->
-                            @if (!$user->is_admin && Auth::User()->is_admin)
+                            @if (Auth::User() && !$user->is_admin && Auth::User()->is_admin)
                                 <div class="text-center">
                                     <!-- make user admin -->
                                     <form method="POST" action="{{ route('users.makeAdmin', $user->id) }}">
