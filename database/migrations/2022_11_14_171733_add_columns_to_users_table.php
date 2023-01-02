@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::table('users', function ($table) {
              $table->text('biography');
              $table->date('birthday');
-             $table->binary('avatar');
+             $table->binary('avatar')->nullable();
         });
     }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->float('price');
-            $table->binary('picture');
+            $table->binary('picture')->nullable();
             $table->timestamps();
         });
     }

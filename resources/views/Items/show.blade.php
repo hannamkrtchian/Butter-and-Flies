@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends((Auth::user() && Auth::user()->is_admin) ? 'layouts.admin' : 'layouts.app')
 
 @section('title', $item->title)
 
@@ -59,6 +59,5 @@
         @endif
         @endforeach
     </div><br><br>
-    // extra functionaliteit dat users een comment kunnen laten?
-</div>
+    </div>
 @endsection
